@@ -827,8 +827,10 @@
 
         document.querySelectorAll('.filter-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                btn.classList.toggle('active');
-                setFilterButtons(true);
+                if (btn.classList.contains('disabled')) {
+                    btn.classList.toggle('active');
+                    setFilterButtons(true);
+                }
                 updateCharacterSetFromFilters();
             });
         });
